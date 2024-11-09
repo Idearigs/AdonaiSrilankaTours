@@ -37,16 +37,90 @@
       <div id="page" class="page">
          <!-- site header html start  -->
 
-         <script>
-            fetch("navbar.html")
-            .then(response => response.text())
-            .then(data => {
-               document.getElementById("masthead").innerHTML = data;
-            })
-            .catch(error => console.log("error loading navbar"))
-         </script>
          <header id="masthead" class="site-header">
-           
+            <!-- header html start -->
+            <div class="top-header">
+               <div class="container">
+                  <div class="top-header-inner">
+                     <div class="header-contact text-left">
+                        <a href="telto:01977259912">
+                           <i aria-hidden="true" class="icon icon-phone-call2"></i>
+                           <div class="header-contact-details d-none d-sm-block">
+                              <span class="contact-label">Contact us</span>
+                              <h5 class="header-contact-no">+01 (977) 2599 12</h5>
+                           </div>
+                        </a>
+                     </div>
+                     <div class="site-logo text-center">
+                        <h1 class="site-title">
+                           <a href="index.html">
+                              <img src="assets/images/site-logo.png" alt="Logo">
+                           </a>
+                        </h1>
+                     </div>
+                     <div class="header-icon text-right">
+                      
+                        <div class="offcanvas-menu d-inline-block">
+                           <a href="#">
+                              <i aria-hidden="true" class="icon icon-burger-menu"></i>
+                           </a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="bottom-header">
+               <div class="container">
+                  <div class="bottom-header-inner d-flex justify-content-between align-items-center">
+                     <div class="header-social social-icon">
+                        <ul>
+                           <li>
+                              <a href="../../../www.facebook.com/index.html" target="_blank">
+                                 <i class="fab fa-facebook-f" aria-hidden="true"></i>
+                              </a>
+                           </li>
+                           <li>
+                              <a href="../../../www.twitter.com/index.html" target="_blank">
+                                 <i class="fab fa-twitter" aria-hidden="true"></i>
+                              </a>
+                           </li>
+                           <li>
+                              <a href="../../../www.youtube.com/index.html" target="_blank">
+                                 <i class="fab fa-youtube" aria-hidden="true"></i>
+                              </a>
+                           </li>
+                        </ul>
+                     </div>
+                     <div class="navigation-container d-none d-lg-block">
+                        <nav id="navigation" class="navigation">
+                           <ul>
+                              <li class="menu-active">
+                                 <a href="index.html">Home</a>
+                              </li>
+                              <li>
+                                 <a href="Sri-lanka-tour-packages.html">Sri Lanka Tour Packages</a>
+                              </li>
+                              <li>
+                                 <a href="Sri-lanka-day-tours.html">Day Tours</a>
+                              </li>
+                              <li>
+                                <a href="Activites.html">Activities</a>
+                             </li>
+                             <li>
+                                <a href="about.html">About us</a>
+                             </li>
+                            
+                             
+                           </ul>
+                        </nav>
+                     </div>
+                     <div class="header-btn">
+                        <a href="contact.html" class="round-btn">Contact now</a>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="mobile-menu-container"></div>
          </header>
          <!-- site header html end  -->
          <main id="content" class="site-main">
@@ -403,6 +477,63 @@
                </div>
             </div>
             <!-- ***Home counter html end here*** -->
+
+            <section class="home-about">
+               <div class="container">
+                  <div class="section-heading">
+                     <div class="heading-group">
+                        <h5 class="sub-title">ABOUT US</h5>
+                        <h2 class="section-title">WHY CHOOSE US</h2>
+                        <p class="why-choose-us-description">
+                           We are dedicated to offering memorable and personalized travel experiences across Sri Lanka. With our team’s local expertise, commitment to safety, and a focus on customer satisfaction, we ensure each journey is tailored to your interests. Discover Sri Lanka’s wonders with guides who know the country’s hidden gems and provide exceptional service every step of the way.
+                        </p>
+                     </div>
+                  </div>
+                  <div class="heading-btn">
+                     <a href="about.html" class="round-btn">Learn More About Us</a>
+                  </div>
+               </div>
+            </section>
+            
+
+            <style>
+               .home-about {
+    margin-top: 70px;  /* Add top margin */
+    margin-bottom: 70px; /* Add bottom margin */
+    text-align: center; /* Center align content */
+}
+
+.section-heading .heading-group {
+    margin-bottom: 20px; /* Space between description and button */
+}
+
+.why-choose-us-description {
+    font-size: 1rem;
+    color: #555;
+    max-width: 800px;
+    margin: 0 auto 30px auto; /* Center the paragraph with margin-bottom */
+    line-height: 1.6;
+}
+
+.heading-btn {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center; /* Center the button */
+}
+
+.round-btn {
+    padding: 10px 20px;
+    background-color: #357edd;
+    color: #fff;
+    border-radius: 25px;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+}
+
+            </style>
+            
             <!-- ***Home offer html start from here*** -->
             <section class="home-offer">
                <div class="container">
@@ -511,8 +642,8 @@
                         </div>
                      </div>
                   </div>
-                  <div class="gallery-section">
-                     <div class="gallery-container grid">
+                  <div class="gallery-section1">
+                     <div class="gallery-container1 grid">
                         <div class="single-gallery grid-item">
                            <figure class="gallery-img">
                               <a href="assets/images/img14.jpg" data-fancybox="gallery">
@@ -520,7 +651,7 @@
                               </a>
                            </figure>
                         </div>
-                        <div class="single-gallery grid-item">
+                        <div class="single-gallery1 grid-item">
                            <figure class="gallery-img">
                               <a href="assets/images/img11.jpg" data-fancybox="gallery">
                                  <img src="assets/images/img11.jpg" alt="">
@@ -548,10 +679,69 @@
                               </a>
                            </figure>
                         </div>
+                        <div class="single-gallery grid-item">
+                           <figure class="gallery-img">
+                              <a href="assets/images/img10.jpg" data-fancybox="gallery">
+                                 <img src="assets/images/img10.jpg" alt="">
+                              </a>
+                           </figure>
+                        </div>
+                        <div class="single-gallery grid-item">
+                           <figure class="gallery-img">
+                              <a href="assets/images/img10.jpg" data-fancybox="gallery">
+                                 <img src="assets/images/img10.jpg" alt="">
+                              </a>
+                           </figure>
+                        </div>
                      </div>
                   </div>
                </div>
             </section>
+            <style>
+               .gallery-section1 {
+                  margin-top: 30px;
+               }
+
+               .gallery-container1 {
+                  display: grid;
+                  grid-template-columns: repeat(4, 1fr); /* Creates a 4-column grid */
+                  gap: 20px; /* Space between grid items */
+               }
+
+               .single-gallery1 {
+                  overflow: hidden;
+                  border-radius: 8px;
+                  transition: transform 0.3s ease;
+               }
+
+               .single-gallery1 img {
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  transition: transform 0.3s ease;
+               }
+
+               .single-gallery:hover {
+                  transform: scale(1.05); /* Scale effect on hover */
+               }
+
+               .single-gallery:hover img {
+                  transform: scale(1.1); /* Slight zoom-in effect on hover */
+               }
+               @media (max-width: 992px) {
+                  .gallery-container {
+                     grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
+                  }
+               }
+
+               @media (max-width: 576px) {
+                  .gallery-container {
+                     grid-template-columns: 1fr; /* 1 column on mobile */
+                  }
+               }
+
+
+            </style>
             <!-- ***Home gallery html end here*** -->
             <!-- ***Home client html start from here*** -->
             <section class="home-client client-section" style="background-image: url(assets/images/banner-img1.jpg);">
@@ -595,7 +785,7 @@
             </section>
             <!-- ***Home client html end here*** -->
             <!-- ***Home blog html start from here*** -->
-            <section class="home-blog">
+            <!-- <section class="home-blog">
                <div class="container">
                   <div class="section-heading d-sm-flex align-items-center justify-content-between">
                      <div class="heading-group">
@@ -658,10 +848,10 @@
                      </div>
                   </div>
                </div>
-            </section>
+            </section> -->
             <!-- ***Home blog html end here*** -->
             <!-- ***Home testimonial html start from here*** -->
-            <section class="home-testimonial">
+            <!-- <section class="home-testimonial">
                <div class="container">
                   <div class="row">
                      <div class="col-lg-8 offset-lg-2 text-center">
@@ -763,7 +953,7 @@
                      </div>
                   </div>
                </div>
-            </section>
+            </section> -->
             <!-- ***Home testimonial html end here*** -->
             <!-- ***Home callback html start from here*** -->
             <section class="home-callback bg-color-callback primary-bg">
