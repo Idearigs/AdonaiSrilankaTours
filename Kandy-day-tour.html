@@ -45,24 +45,20 @@
                         <a href="telto:01977259912">
                            <i aria-hidden="true" class="icon icon-phone-call2"></i>
                            <div class="header-contact-details d-none d-sm-block">
-                              <span class="contact-label">For Further Inquires :</span>
+                              <span class="contact-label">Contact us</span>
                               <h5 class="header-contact-no">+01 (977) 2599 12</h5>
                            </div>
                         </a>
                      </div>
                      <div class="site-logo text-center">
-                        <p class="site-title">
-                           <a href="index-2.html">
+                        <h1 class="site-title">
+                           <a href="index.html">
                               <img src="assets/images/site-logo.png" alt="Logo">
                            </a>
-                        </p>
+                        </h1>
                      </div>
                      <div class="header-icon text-right">
-                        <div class="header-search-icon d-inline-block">
-                           <a href="#">
-                              <i aria-hidden="true" class="fas fa-search"></i>
-                           </a>
-                        </div>
+                      
                         <div class="offcanvas-menu d-inline-block">
                            <a href="#">
                               <i aria-hidden="true" class="icon icon-burger-menu"></i>
@@ -98,99 +94,27 @@
                         <nav id="navigation" class="navigation">
                            <ul>
                               <li class="menu-active">
-                                 <a href="index-2.html">Home</a>
+                                 <a href="index.html">Home</a>
                               </li>
                               <li>
-                                 <a href="about.html">about us</a>
+                                 <a href="Sri-lanka-tour-packages.html">Sri Lanka Tour Packages</a>
                               </li>
                               <li>
-                                 <a href="destination.html">destination</a>
-                              </li>
-                              <li class="menu-item-has-children">
-                                 <a href="index-2.html">packages</a>
-                                 <ul>
-                                    <li>
-                                       <a href="package.html">Packages</a>
-                                    </li>
-                                    <li>
-                                       <a href="package-offer.html">Package offer</a>
-                                    </li>
-                                    <li>
-                                       <a href="package-detail.html">Package detail</a>
-                                    </li>
-                                    <li>
-                                       <a href="cart.html">Cart page</a>
-                                    </li>
-                                    <li>
-                                       <a href="booking.html">Booking page</a>
-                                    </li>
-                                    <li>
-                                       <a href="confirmation.html">Confirmation</a>
-                                    </li>
-                                 </ul>
-                              </li>
-                              <li class="menu-item-has-children">
-                                 <a href="index-2.html">Pages</a>
-                                 <ul>
-                                    <li>
-                                       <a href="service.html">Service</a>
-                                    </li>
-                                    <li class="menu-item-has-children">
-                                       <a href="#">Career</a>
-                                       <ul>
-                                          <li>
-                                             <a href="career.html">Career</a>
-                                          </li>
-                                          <li>
-                                             <a href="career-detail.html">Career detail</a>
-                                          </li>
-                                       </ul>
-                                    </li>
-                                    <li>
-                                       <a href="team.html">Tour guide</a>
-                                    </li>
-                                    <li>
-                                       <a href="gallery.html">Gallery page</a>
-                                    </li>
-                                    <li class="menu-item-has-children">
-                                       <a href="#">Blog</a>
-                                       <ul>
-                                          <li>
-                                             <a href="blog-archive.html">Blog archive</a>
-                                          </li>
-                                          <li>
-                                             <a href="blog-single.html">blog single</a>
-                                          </li>
-                                       </ul>
-                                    </li>
-                                    <li>
-                                       <a href="single-page.html">Single Page</a>
-                                    </li>
-                                    <li>
-                                       <a href="testimonial.html">Testimonial</a>
-                                    </li>
-                                    <li>
-                                       <a href="faq.html">Faq Page</a>
-                                    </li>
-                                    <li>
-                                       <a href="search-page.html">Search Page</a>
-                                    </li>
-                                    <li>
-                                       <a href="404.html">404 Page</a>
-                                    </li>
-                                    <li>
-                                       <a href="comming-soon.html">Comming Soon Page</a>
-                                    </li>
-                                 </ul>
+                                 <a href="Sri-lanka-day-tours.html">Day Tours</a>
                               </li>
                               <li>
-                                 <a href="contact.html">contact us</a>
-                              </li>
+                                <a href="Activites.html">Activities</a>
+                             </li>
+                             <li>
+                                <a href="about.html">About us</a>
+                             </li>
+                            
+                             
                            </ul>
                         </nav>
                      </div>
                      <div class="header-btn">
-                        <a href="booking.html" class="round-btn">Book Now</a>
+                        <a href="contact.html" class="round-btn">Contact now</a>
                      </div>
                   </div>
                </div>
@@ -377,187 +301,17 @@
             </section>
          </main>
          <!-- ***site footer html start form here*** -->
+         <script>
+            fetch("footer.html")
+            .then(response => response.text())
+            .then(data => {
+               document.getElementById("colophon").innerHTML = data;
+            })
+            .catch(error => console.log("error loading navbar"))
+         </script>
+
          <footer id="colophon" class="site-footer footer-primary">
-            <div class="top-footer">
-               <div class="container">
-                  <div class="upper-footer">
-                     <div class="row">
-                        <div class="col-lg-3 col-sm-6">
-                           <aside class="widget widget_text">
-                              <div class="footer-logo">
-                                 <a href="index-2.html"><img src="assets/images/site-logo.png" alt=""></a>
-                              </div>
-                              <div class="textwidget widget-text">
-                                 Urna ratione ante harum provident, eleifend, vulputate molestiae proin fringilla, praesentium magna conubia at perferendis, pretium, aenean aut ultrices.
-                              </div>
-                           </aside>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                           <aside class="widget widget_latest_post widget-post-thumb">
-                              <h3 class="widget-title">RECENT POST</h3>
-                              <ul>
-                                 <li>
-                                    <figure class="post-thumb">
-                                       <a href="blog-archive.html"><img src="assets/images/img21.jpg" alt=""></a>
-                                    </figure>
-                                    <div class="post-content">
-                                       <h6>
-                                          <a href="blog-single.html">BEST JOURNEY TO PEACEFUL PLACES</a>
-                                       </h6>
-                                       <div class="entry-meta">
-                                          <span class="posted-on">
-                                             <a href="blog-archive.html">February 17, 2022</a>
-                                          </span>
-                                       </div>
-                                    </div>
-                                 </li>
-                                 <li>
-                                    <figure class="post-thumb">
-                                       <a href="blog-archive.html"><img src="assets/images/img22.jpg" alt=""></a>
-                                    </figure>
-                                    <div class="post-content">
-                                       <h6>
-                                          <a href="blog-single.html">TRAVEL WITH FRIENDS IS BEST</a>
-                                       </h6>
-                                       <div class="entry-meta">
-                                          <span class="posted-on">
-                                             <a href="blog-archive.html">February 17, 2022</a>
-                                          </span>
-                                       </div>
-                                    </div>
-                                 </li>
-                              </ul>
-                           </aside>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                           <aside class="widget widget_text">
-                              <h3 class="widget-title">CONTACT US</h3>
-                              <div class="textwidget widget-text">
-                                 <p>Feel free to contact and<br/> reach us !!</p>
-                                 <ul>
-                                    <li>
-                                       <a href="tel:+01988256203">
-                                          <i aria-hidden="true" class="icon icon-phone1"></i>
-                                          +01(988) 256 203
-                                       </a>
-                                    </li>
-                                    <li>
-                                       <a href="mailtop:info@domain.com">
-                                          <i aria-hidden="true" class="icon icon-envelope1"></i>
-                                          info@domain.com
-                                       </a>
-                                    </li>
-                                    <li>
-                                       <i aria-hidden="true" class="icon icon-map-marker1"></i>
-                                       3146 Koontz, California
-                                    </li>
-                                 </ul>
-                              </div>
-                           </aside>
-                        </div>
-                        <div class="col-lg-3 col-sm-6">
-                           <aside class="widget">
-                              <h3 class="widget-title">Gallery</h3>
-                              <div class="gallery gallery-colum-3">
-                                 <figure class="gallery-item">
-                                    <a href="assets/images/img10.jpg" data-fancybox="gallery-1">
-                                       <img src="assets/images/img21.jpg" alt="">
-                                    </a>
-                                 </figure>
-                                 <figure class="gallery-item">
-                                    <a href="assets/images/img28.jpg" data-fancybox="gallery-1">
-                                       <img src="assets/images/img22.jpg" alt="">
-                                    </a>
-                                 </figure>
-                                 <figure class="gallery-item">
-                                    <a href="assets/images/img14.jpg" data-fancybox="gallery-1">
-                                       <img src="assets/images/img23.jpg" alt="">
-                                    </a>
-                                 </figure>
-                                 <figure class="gallery-item">
-                                    <a href="assets/images/img15.jpg" data-fancybox="gallery-1">
-                                       <img src="assets/images/img24.jpg" alt="">
-                                    </a>
-                                 </figure>
-                                 <figure class="gallery-item">
-                                    <a href="assets/images/img12.jpg" data-fancybox="gallery-1">
-                                       <img src="assets/images/img25.jpg" alt="">
-                                    </a>
-                                 </figure>
-                                 <figure class="gallery-item">
-                                    <a href="assets/images/img13.jpg" data-fancybox="gallery-1">
-                                       <img src="assets/images/img26.jpg" alt="">
-                                    </a>
-                                 </figure>
-                              </div>
-                           </aside>
-                        </div>
-                     </div>
-                  </div>
-                  <div class="lower-footer">
-                     <div class="row align-items-center">
-                        <div class="col-lg-6">
-                           <div class="footer-newsletter">
-                              <p>Subscribe our newsletter for more update & news !!</p>
-                              <form class="newsletter">
-                                 <input type="email" name="email" placeholder="Enter Your Email">
-                                 <button type="submit" class="outline-btn outline-btn-white">Subscribe</button>
-                              </form>
-                           </div>
-                        </div>
-                        <div class="col-lg-6 text-right">
-                           <div class="social-icon">
-                              <ul>
-                                 <li>
-                                    <a href="../../../www.facebook.com/index.html" target="_blank">
-                                       <i class="fab fa-facebook-f" aria-hidden="true"></i>
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="../../../www.twitter.com/index.html" target="_blank">
-                                       <i class="fab fa-twitter" aria-hidden="true"></i>
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="../../../www.youtube.com/index.html" target="_blank">
-                                       <i class="fab fa-youtube" aria-hidden="true"></i>
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="../../../www.instagram.com/index.html" target="_blank">
-                                       <i class="fab fa-instagram" aria-hidden="true"></i>
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="../../../www.linkedin.com/index.html" target="_blank">
-                                       <i class="fab fa-linkedin" aria-hidden="true"></i>
-                                    </a>
-                                 </li>
-                              </ul>
-                           </div>
-                           <div class="footer-menu">
-                              <ul>
-                                 <li>
-                                    <a href="policy.html">Privacy Policy</a>
-                                 </li>
-                                 <li>
-                                    <a href="policy.html">Term & Condition</a>
-                                 </li>
-                                 <li>
-                                    <a href="faq.html">FAQ</a>
-                                 </li>
-                              </ul>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <div class="bottom-footer">
-               <div class="container">
-                  <div class="copy-right text-center">Copyright &copy; 2022 Traveler. All rights reserved.</div>
-               </div>
-            </div>
+            
          </footer>
          <!-- ***site footer html end*** -->
          <a id="backTotop" href="#" class="to-top-icon">
