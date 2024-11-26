@@ -51,11 +51,43 @@
                      </div>
                      <div class="site-logo text-center">
                         <h1 class="site-title">
-                           <a href="index.html">
-                              <img src="assets/images/site-logo.png" alt="Logo">
-                           </a>
+                            <a href="index.html" style="display: flex; align-items: center;">
+                                <img src="assets/img/Adonaisrilankalogo.png" alt="Logo" style="border-radius:50%;" width="50px">
+                                <span class="logo-text">Adonai Sri Lanka Tours</span>
+                            </a>
                         </h1>
-                     </div>
+                    </div>
+                    <style>
+                                          /* Container styling for desktop version */
+                     .site-logo {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                     }
+                     .logo-text{
+                        color: white !important;
+                     }
+
+                     .site-logo img {
+                        margin-right: 10px; /* Space between logo and text */
+                     }
+
+                     .site-logo .logo-text {
+                        display: block;
+                        font-size: 1.2rem; /* Adjust font size as needed */
+                        font-weight: bold;
+                        color: #333; /* Adjust color if necessary */
+                     }
+
+                     /* Hide the text on mobile devices */
+                     @media (max-width: 768px) {
+                        .site-logo .logo-text {
+                           display: none;
+                        }
+                     }
+
+                    </style>
+                    
                      <div class="header-icon text-right">
                       
                         <div class="offcanvas-menu d-inline-block">
@@ -77,7 +109,7 @@
                                  <i class="fab fa-facebook-f" aria-hidden="true"></i>
                               </a>
                            </li>
-                          
+                           
                         </ul>
                      </div>
                      <div class="navigation-container d-none d-lg-block">
