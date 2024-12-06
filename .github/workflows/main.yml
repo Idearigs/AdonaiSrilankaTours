@@ -18,7 +18,7 @@ jobs:
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_adonai
         ssh-keyscan -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
     - name: Connect and Pull
-      run: ssh -i ~/.ssh/id_rsa ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd /var/www/html && git reset --hard && git clean -fd && git pull origin main && exit"
+      run: ssh -i ~/.ssh/id_adonai ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd /home/adonyype/public_html && git reset --hard && git clean -fd && git pull origin main && exit"
 
     - name: cleanup
       run: rm -rf ~/.ssh
