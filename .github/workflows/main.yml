@@ -3,22 +3,29 @@ on:
     branches:
       - main
   workflow_dispatch:
-  
+
 jobs:
   run_pull:
-    name: run pull
+    name: Run Pull
     runs-on: ubuntu-latest
     
     steps:
-    - name: install ssh keys
-      # check this thread to understand why its needed:
-      # https://stackoverflow.com/a/70447517
+    - name: Install SSH keys
       run: |
-        install -m 600 -D /dev/null ~/.ssh/id_rsa
+        mkdir -p ~/.ssh
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_adonai
-        ssh-keyscan -H ${{ secrets.SSH_HOST }} > ~/.ssh/known_hosts
-    - name: Connect and Pull
-      run: ssh -i ~/.ssh/id_adonai ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd /home/adonyype/public_html && git reset --hard && git clean -fd && git pull origin main && exit"
+        chmod 600 ~/.ssh/id_adonai
+        ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
 
-    - name: cleanup
+    - name: Connect and Pull
+      run: |
+        ssh -i ~/.ssh/id_adonai ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "
+          cd /home/adonyype/public_html && 
+          git reset --hard && 
+          git clean -fd && 
+          git pull origin main && 
+          exit
+        "
+
+    - name: Cleanup
       run: rm -rf ~/.ssh
