@@ -16,6 +16,14 @@ jobs:
         echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
         chmod 600 ~/.ssh/id_rsa
         ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+        echo "SSH keys and known_hosts set up successfully."
+
+    - name: Debug SSH Keys
+      run: |
+        echo "Listing ~/.ssh contents:"
+        ls -la ~/.ssh
+        echo "Known hosts content:"
+        cat ~/.ssh/known_hosts
 
     - name: Connect and pull
       run: ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} "cd ${{ secrets.WORK_DIR }} && git checkout ${{ secrets.MAIN_BRANCH }} && git pull && exit"
