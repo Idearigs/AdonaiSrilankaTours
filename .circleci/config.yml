@@ -1,0 +1,15 @@
+version: 2.1
+
+jobs:
+  build-and-deploy:
+    docker:
+      - image: circleci/node:latest
+    steps:
+      - checkout:
+          always: true
+      - run:
+          name: Deploy to Namecheap
+          command: |
+            ssh -i ~/.ssh/id_rsa adonyype@67.223.118.123
+            cd /home/adonyype/public_html
+            git pull origin main
