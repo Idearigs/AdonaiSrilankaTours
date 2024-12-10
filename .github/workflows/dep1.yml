@@ -1,0 +1,29 @@
+name: Deploy to Shared Hosting
+
+on:
+  push:
+    branches:
+      - main  # Change this to your default branch if it's not 'main'
+
+jobs:
+  deploy:
+    name: Deploy to Shared Hosting Server
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Set up SSH
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan -p 21098 67.223.118.123 >> ~/.ssh/known_hosts
+
+    - name: Deploy Files
+      run: |
+        rsync -avz --delete -e "ssh -p 21098" ./ /home/adonyype/public_html --exclude .git/
+      env:
+        SSH_USERNAME: adonyype
+        SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
