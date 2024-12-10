@@ -21,9 +21,11 @@ jobs:
         chmod 600 ~/.ssh/id_rsa
         ssh-keyscan -p 21098 67.223.118.123 >> ~/.ssh/known_hosts
 
+    - name: Debug SSH Setup
+      run: |
+        ls -al ~/.ssh
+        cat ~/.ssh/known_hosts
+
     - name: Deploy Files
       run: |
         rsync -avz --delete -e "ssh -p 21098" ./ /home/adonyype/public_html --exclude .git/
-      env:
-        SSH_USERNAME: adonyype
-        SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
