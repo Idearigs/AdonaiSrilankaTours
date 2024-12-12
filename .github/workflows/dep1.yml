@@ -23,11 +23,11 @@ jobs:
 
     - name: Ensure Target Directory Exists
       run: |
-        ssh -v -p 21098 adonyype@67.223.118.123 "mkdir -p /home/adonyype/public_html"
+        ssh -v -p 21098 adonyype@67.223.118.123 "mkdir -p /public_html"
     
     - name: Deploy Files
       run: |
-        rsync -avz --delete -e "ssh -p 21098" ./ /home/adonyype/public_html --exclude .git/
+        rsync -avz --delete -e "ssh -p 21098" ./ /public_html --exclude .git/
       env:
         SSH_USERNAME: adonyype
         SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
