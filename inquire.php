@@ -30,11 +30,46 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Content
         $mail->isHTML(true);
         $mail->Subject = 'New Travel Inquiry';
-        $mail->Body    = "Full name: $name<br>
-                          Special Note: $special_note<br>
-                          Pax Number: $pax_number<br>
-                          Checkin Date: $checkin_date<br>
-                          Checkout Date: $checkout_date";
+
+        // Enhanced HTML email body
+        $mail->Body = "
+        <html>
+        <body style='font-family: Arial, sans-serif; background-color: #f9f9f9; color: #333; padding: 20px;'>
+            <div style='max-width: 600px; margin: auto; background: #ffffff; padding: 20px; border: 1px solid #ddd; border-radius: 5px;'>
+                <h2 style='text-align: center; color: #0056b3;'>New Travel Inquiry</h2>
+                <table style='width: 100%; border-collapse: collapse; margin-top: 20px;'>
+                    <tr style='background-color: #f2f2f2;'>
+                        <th style='padding: 10px; text-align: left; border: 1px solid #ddd;'>Field</th>
+                        <th style='padding: 10px; text-align: left; border: 1px solid #ddd;'>Details</th>
+                    </tr>
+                    <tr>
+                        <td style='padding: 10px; border: 1px solid #ddd;'>Full Name</td>
+                        <td style='padding: 10px; border: 1px solid #ddd;'>$name</td>
+                    </tr>
+                    <tr>
+                        <td style='padding: 10px; border: 1px solid #ddd;'>Special Note</td>
+                        <td style='padding: 10px; border: 1px solid #ddd;'>$special_note</td>
+                    </tr>
+                    <tr>
+                        <td style='padding: 10px; border: 1px solid #ddd;'>Pax Number</td>
+                        <td style='padding: 10px; border: 1px solid #ddd;'>$pax_number</td>
+                    </tr>
+                    <tr>
+                        <td style='padding: 10px; border: 1px solid #ddd;'>Check-in Date</td>
+                        <td style='padding: 10px; border: 1px solid #ddd;'>$checkin_date</td>
+                    </tr>
+                    <tr>
+                        <td style='padding: 10px; border: 1px solid #ddd;'>Check-out Date</td>
+                        <td style='padding: 10px; border: 1px solid #ddd;'>$checkout_date</td>
+                    </tr>
+                </table>
+                <p style='text-align: center; margin-top: 20px;'>Thank you for using Adonai Sri Lanka Tours!</p>
+            </div>
+        </body>
+        </html>
+        ";
+
+        $mail->AltBody = "Full Name: $name\nSpecial Note: $special_note\nPax Number: $pax_number\nCheck-in Date: $checkin_date\nCheck-out Date: $checkout_date";
 
         $mail->send();
         header('Location: index.html?status=success');

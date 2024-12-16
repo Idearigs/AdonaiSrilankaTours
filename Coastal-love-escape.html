@@ -253,12 +253,16 @@
                               <div class="booking-form-wrap">
                                  <div class="booking-form-inner primary-bg">
                                     <h3 style="margin-bottom:35px;">BOOKING FORM</h3>
-                                    
-                                    <form method="get" class="booking-form">
+
+                                    <!-- Include SweetAlert script -->
+                                    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+                                    <!-- Booking Form -->
+                                    <form id="booking-form" class="booking-form">
                                        <p style="margin-bottom:29px;">
                                           <input type="text" name="name" placeholder="Your Name..." required>
                                        </p>
-                                       <p style="margin-bottom:35x;">
+                                       <p style="margin-bottom:35px;">
                                           <input type="email" name="email" placeholder="Your Email..." required>
                                        </p>
                                        <p style="margin-bottom:29px;">
@@ -279,6 +283,49 @@
                                           <button type="submit" class="outline-btn outline-btn-white">INQUIRY NOW</button>
                                        </p>
                                     </form>
+
+                                    <script>
+                                       // Handle form submission with AJAX
+                                       document.getElementById('booking-form').addEventListener('submit', function (e) {
+                                          e.preventDefault(); // Prevent the default form submission
+
+                                          const formData = new FormData(this); // Gather all form data
+
+                                          fetch('Booking.php', {
+                                             method: 'POST',
+                                             body: formData,
+                                          })
+                                                  .then(response => response.json()) // Parse JSON response from the server
+                                                  .then(data => {
+                                                     if (data.success) {
+                                                        // Show success alert
+                                                        Swal.fire({
+                                                           icon: 'success',
+                                                           title: 'Inquiry Sent!',
+                                                           text: 'Thank you for your inquiry. We will get back to you soon!',
+                                                        });
+                                                        document.getElementById('booking-form').reset(); // Clear the form
+                                                     } else {
+                                                        // Show error alert
+                                                        Swal.fire({
+                                                           icon: 'error',
+                                                           title: 'Error!',
+                                                           text: data.message || 'Something went wrong. Please try again.',
+                                                        });
+                                                     }
+                                                  })
+                                                  .catch(error => {
+                                                     // Handle network or server errors
+                                                     Swal.fire({
+                                                        icon: 'error',
+                                                        title: 'Error!',
+                                                        text: 'Unable to send your inquiry. Please try again later.',
+                                                     });
+                                                  });
+                                       });
+                                    </script>
+
+
                                  </div>
                               </div>
                               

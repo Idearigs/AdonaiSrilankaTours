@@ -173,9 +173,6 @@
                               <li>
                                 <a href="Activites.html">Activities</a>
                              </li>
-                             <li>
-                                <a href="about.html">About us</a>
-                             </li>
                             
                              
                            </ul>
@@ -193,7 +190,7 @@
          <main id="content" class="site-main">
             <!-- ***home banner html start form here*** -->
             <section class="home-banner-section home-banner-slider">
-               <div class="home-banner d-flex flex-wrap align-items-center" style="background-image: url(assets/img/sigiriya.jpg);">
+               <div class="home-banner d-flex flex-wrap align-items-center" style="background-image: url(assets/img/Mirissa.jpg">
                   <div class="overlay"></div>
                   <div class="container">
                      <div class="banner-content text-center">
@@ -236,31 +233,61 @@
                 
 
                <div class="container">
-                  <form method="POST" action="inquire.php" class="trip-search-inner d-flex">
+                  <form method="POST" action="inquire.php" class="trip-search-inner d-flex" id="inquiry-form">
                      <div class="group-input">
-                         <label>Full name</label>
-                         <input type="text" name="s" placeholder="What you like to do in Sri Lanka?">
-                     </div>
-                     <div class="group-input">
-                         <label>Special Note</label>
-                         <input type="text" name="special_note" placeholder="Surfing, Hiking, ...">
+                        <label>Full name</label>
+                        <input type="text" name="s" placeholder="What you like to do in Sri Lanka?" required>
                      </div>
                      <div class="group-input">
-                         <label>Pax Number*</label>
-                         <input type="text" name="pax_number" placeholder="No. of People">
+                        <label>Special Note</label>
+                        <input type="text" name="special_note" placeholder="Surfing, Hiking, ...">
+                     </div>
+                     <div class="group-input">
+                        <label>Pax Number*</label>
+                        <input type="number" name="pax_number" placeholder="No. of People" min="1" max="40" required>
                      </div>
                      <div class="group-input width-col-3">
-                         <label>Checkin Date*</label>
-                         <input class="input-date-picker" type="text" name="checkin_date" placeholder="MM/DD/YY" autocomplete="off" readonly="readonly">
+                        <label>Check-in Date*</label>
+                        <input class="input-date-picker" type="date" name="checkin_date" min="" required>
                      </div>
                      <div class="group-input width-col-3">
-                         <label>Checkout Date*</label>
-                         <input class="input-date-picker" type="text" name="checkout_date" placeholder="MM/DD/YY" autocomplete="off" readonly="readonly">
+                        <label>Check-out Date*</label>
+                        <input class="input-date-picker" type="date" name="checkout_date" min="" required>
                      </div>
                      <div class="group-input width-col-3">
-                         <input type="submit" name="travel-search" value="INQUIRE NOW">
+                        <input type="submit" name="travel-search" value="INQUIRE NOW">
                      </div>
-                 </form>
+                  </form>
+                  <script>
+                     // JavaScript Validation
+                     document.addEventListener("DOMContentLoaded", function () {
+                        // Get today's date in YYYY-MM-DD format
+                        const today = new Date().toISOString().split("T")[0];
+
+                        // Set minimum dates for the date fields
+                        const checkinDate = document.querySelector("input[name='checkin_date']");
+                        const checkoutDate = document.querySelector("input[name='checkout_date']");
+
+                        checkinDate.setAttribute("min", today);
+                        checkoutDate.setAttribute("min", today);
+
+                        // Ensure checkout date is always after check-in date
+                        checkinDate.addEventListener("change", function () {
+                           checkoutDate.setAttribute("min", this.value);
+                        });
+                     });
+
+                     // Prevent form submission if Pax Number exceeds 40
+                     const form = document.getElementById("inquiry-form");
+                     form.addEventListener("submit", function (event) {
+                        const paxNumber = document.querySelector("input[name='pax_number']").value;
+                        if (paxNumber > 40) {
+                           alert("Pax Number cannot exceed 40.");
+                           event.preventDefault();
+                        }
+                     });
+                  </script>
+
                </div>
             </div>
 
