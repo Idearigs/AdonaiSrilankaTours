@@ -14,6 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $checkinDate = htmlspecialchars($_POST['checkin-date']);
     $checkoutDate = htmlspecialchars($_POST['checkout-date']);
     $specialNotes = htmlspecialchars($_POST['special-notes']);
+    $packageName = htmlspecialchars($_POST['package-name']); // Capture the package name
 
     // Initialize PHPMailer
     $mail = new PHPMailer(true);
@@ -36,16 +37,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $mail->isHTML(true);
         $mail->Subject = 'New Booking Inquiry from Adonaisrilankatours.com';
         $mail->Body = "
-            <div style='font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f8f9fa;'>
-                <table style='width: 100%; border-collapse: collapse;'>
-                    <thead style='background-color: #1c2331; color: white;'>
+            <div style='font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f8f9fa;' >
+                <table style='width: 100%; border-collapse: collapse;' >
+                    <thead style='background-color: #1c2331; color: white;' >
                         <tr>
                             <th style='padding: 20px; font-size: 24px; text-align: center;'>New Contact from Adonaisrilankatours.com</th>
                         </tr>
                     </thead>
-                    <tbody style='background-color: #ffffff;'>
+                    <tbody style='background-color: #ffffff;' >
                         <tr>
-                            <td style='padding: 20px;'>
+                            <td style='padding: 20px;' >
                                 <h3 style='color: #343a40;'>Booking Inquiry Details</h3>
                                 <p><strong>Name:</strong> $name</p>
                                 <p><strong>Email:</strong> $email</p>
@@ -53,12 +54,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <p><strong>Check-in Date:</strong> $checkinDate</p>
                                 <p><strong>Check-out Date:</strong> $checkoutDate</p>
                                 <p><strong>Special Notes:</strong> $specialNotes</p>
+                                <p><strong>Package Name:</strong> $packageName</p> <!-- Display the package name -->
                             </td>
                         </tr>
                     </tbody>
-                    <tfoot style='background-color: #1c2331; color: white;'>
+                    <tfoot style='background-color: #1c2331; color: white;' >
                         <tr>
-                            <td style='padding: 20px; text-align: center;'>
+                            <td style='padding: 20px; text-align: center;' >
                                 <p>Email services by <strong>IdeaRigs</strong></p>
                                 <p>&copy; 2024 IdeaRigs. All rights reserved.</p>
                             </td>
@@ -68,6 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </div>
         ";
 
+        // Send email
         $mail->send();
 
         // Respond with success message
