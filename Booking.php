@@ -10,6 +10,7 @@ header('Content-Type: application/json'); // Set content type for JSON response
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = htmlspecialchars($_POST['name']);
     $email = htmlspecialchars($_POST['email']);
+    $budget = htmlspecialchars($_POST['Budget']);
     $contactNumber = htmlspecialchars($_POST['contact-number']);
     $checkinDate = htmlspecialchars($_POST['checkin-date']);
     $checkoutDate = htmlspecialchars($_POST['checkout-date']);
@@ -50,6 +51,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <h3 style='color: #343a40;'>Booking Inquiry Details</h3>
                                 <p><strong>Name:</strong> $name</p>
                                 <p><strong>Email:</strong> $email</p>
+                                <p><strong>Budget:</strong> $budget</p>
                                 <p><strong>Contact Number:</strong> $contactNumber</p>
                                 <p><strong>Check-in Date:</strong> $checkinDate</p>
                                 <p><strong>Check-out Date:</strong> $checkoutDate</p>

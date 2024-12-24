@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <td style='padding: 10px; border: 1px solid #ddd;'>$name</td>
                     </tr>
                     <tr>
-                        <td style='padding: 10px; border: 1px solid #ddd;'>Special Note</td>
+                        <td style='padding: 10px; border: 1px solid #ddd;'>Budget</td>
                         <td style='padding: 10px; border: 1px solid #ddd;'>$special_note</td>
                     </tr>
                     <tr>
