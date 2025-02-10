@@ -27,4 +27,4 @@ jobs:
           script: |
             cd /home/adonyype/public_html  # Navigate to the web directory
             git pull origin main  # Pull the latest changes
-            systemctl restart apache2  # Restart Apache
+            # systemctl restart apache2  # Restart Apache
