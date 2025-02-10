@@ -23,7 +23,7 @@ jobs:
           host: ${{ secrets.VPS_HOST }}  # VPS IP address or domain
           username: ${{ secrets.VPS_USER }}  # SSH username
           password: ${{ secrets.VPS_PASSWORD }}  # SSH password
-          port: 22  # Default SSH port
+          port: 21098  # Adonay SSH port
           script: |
             cd /home/adonyype/public_html  # Navigate to the web directory
             git pull origin main  # Pull the latest changes
