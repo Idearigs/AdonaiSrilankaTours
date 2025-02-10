@@ -1,33 +1,30 @@
-name: Deploy to Shared Hosting
+# Deploy to VPS Solution By Kasun Sajith
+name: Deploy to VPS
 
+# This workflow runs on pushes to the main branch
 on:
   push:
     branches:
-      - main  # Change this to your default branch if it's not 'main'
+      - main
 
 jobs:
   deploy:
-    name: Deploy to Shared Hosting Server
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-latest  # Use the latest Ubuntu runner
 
     steps:
-    - name: Checkout Code
-      uses: actions/checkout@v3
+      # Step 1: Checkout the repository
+      - name: Checkout Repository
+        uses: actions/checkout@v3
 
-    - name: Set up SSH
-      run: |
-        mkdir -p ~/.ssh
-        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan -p 21098 67.223.118.123 >> ~/.ssh/known_hosts
-
-    - name: Ensure Target Directory Exists
-      run: |
-        ssh -v -p 21098 adonyype@67.223.118.123 "mkdir -p /public_html"
-    
-    - name: Deploy Files
-      run: |
-        rsync -avz --delete -e "ssh -p 21098" ./ /public_html --exclude .git/
-      env:
-        SSH_USERNAME: adonyype
-        SSH_PASSWORD: ${{ secrets.SSH_PASSWORD }}
+      # Step 2: Deploy via SSH
+      - name: Deploy via SSH using Password
+        uses: appleboy/ssh-action@v0.1.10
+        with:
+          host: ${{ secrets.VPS_HOST }}  # VPS IP address or domain
+          username: ${{ secrets.VPS_USER }}  # SSH username
+          password: ${{ secrets.VPS_PASSWORD }}  # SSH password
+          port: 22  # Default SSH port
+          script: |
+            cd /home/adonyype/public_html  # Navigate to the web directory
+            git pull origin main  # Pull the latest changes
+            systemctl restart apache2  # Restart Apache
