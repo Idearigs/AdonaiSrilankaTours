@@ -14,7 +14,7 @@ $response = ["success" => false, "message" => ""]; // Initialize the response ar
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $secretKey = "YOUR_SECRET_KEY"; // Replace with your reCAPTCHA secret key
+    $secretKey = "6Lf1ggArAAAAAL_BFucP3Z6WV5O0rfeJ-czcVTPY"; // Replace with your reCAPTCHA secret key
     $captchaResponse = $_POST['g-recaptcha-response'] ?? '';
 
 
