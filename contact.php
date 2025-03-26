@@ -14,33 +14,11 @@ $response = ["success" => false, "message" => ""]; // Initialize the response ar
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $secretKey = "6Lf1ggArAAAAAL_BFucP3Z6WV5O0rfeJ-czcVTPY"; // Replace with your reCAPTCHA secret key
-    $captchaResponse = $_POST['g-recaptcha-response'] ?? '';
-
-
     // Honeypot check (if filled, it's a bot)
     if (!empty($_POST["website"])) {
         echo json_encode(["success" => false, "message" => "Spam detected!"]);
         exit;
     }
-
-    // Verify reCAPTCHA
-    if (empty($captchaResponse)) {
-        echo json_encode(["success" => false, "message" => "Please complete the CAPTCHA"]);
-        exit;
-    }
-
-        $verifyURL = "https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$captchaResponse";
-        $response = file_get_contents($verifyURL);
-        $responseKeys = json_decode($response, true);
-    
-        if (!$responseKeys["success"] || $responseKeys["score"] < 0.5) { // Adjust the threshold as needed
-            echo json_encode(["success" => false, "message" => "CAPTCHA verification failed."]);
-            exit;
-        }
-        
-
-    
 
 
     $name = htmlspecialchars($_POST["name"]);
