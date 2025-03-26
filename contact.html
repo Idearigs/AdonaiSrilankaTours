@@ -186,6 +186,9 @@
                            <div class="contact-from-wrap primary-bg">
                               <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
                               <form id="contactForm" method="POST" class="contact-from" action="contact.php">
+                                 <!-- Honeypot field (hidden) -->
+                                 <input type="text" name="website" id="website" style="display: none;" autocomplete="off">
+                             
                                  <p>
                                      <label>First Name</label>
                                      <input type="text" name="name" placeholder="Your Name*" required>
@@ -203,48 +206,60 @@
                                      <label>Comments / Questions</label>
                                      <textarea name="message" rows="8" placeholder="Your Message*" required></textarea>
                                  </p>
+                             
+                                 <!-- Google reCAPTCHA -->
+                                 <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
+                             
                                  <p>
                                      <input type="submit" name="submit" value="SUBMIT MESSAGE">
                                  </p>
                              </form>
+                             
+                             <!-- Include Google reCAPTCHA API -->
+                             <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+                             <!-- Include SweetAlert -->
+                             <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+                             
                              <script>
-                              document.getElementById('contactForm').addEventListener('submit', function(event) {
-                                  event.preventDefault();  // Prevent default form submission
-                      
-                                  const form = new FormData(this);  // Collect form data
-                      
-                                  fetch('contact.php', {
-                                      method: 'POST',
-                                      body: form
-                                  })
-                                  .then(response => response.json())  // Parse the JSON response
-                                  .then(data => {
-                                      if (data.success) {
-                                          Swal.fire({
-                                              title: 'Success!',
-                                              text: data.message,
-                                              icon: 'success',
-                                              confirmButtonText: 'Okay'
-                                          });
-                                      } else {
-                                          Swal.fire({
-                                              title: 'Error!',
-                                              text: data.message,
-                                              icon: 'error',
-                                              confirmButtonText: 'Try Again'
-                                          });
-                                      }
-                                  })
-                                  .catch(error => {
-                                      Swal.fire({
-                                          title: 'Error!',
-                                          text: 'There was an issue submitting your form.',
-                                          icon: 'error',
-                                          confirmButtonText: 'Try Again'
-                                      });
-                                  });
-                              });
-                          </script>
+                                 document.getElementById('contactForm').addEventListener('submit', function(event) {
+                                     event.preventDefault();  // Prevent default form submission
+                             
+                                     const form = new FormData(this);  // Collect form data
+                             
+                                     fetch('contact.php', {
+                                         method: 'POST',
+                                         body: form
+                                     })
+                                     .then(response => response.json())  // Parse the JSON response
+                                     .then(data => {
+                                         if (data.success) {
+                                             Swal.fire({
+                                                 title: 'Success!',
+                                                 text: data.message,
+                                                 icon: 'success',
+                                                 confirmButtonText: 'Okay'
+                                             });
+                                             document.getElementById('contactForm').reset(); // Clear form after successful submission
+                                         } else {
+                                             Swal.fire({
+                                                 title: 'Error!',
+                                                 text: data.message,
+                                                 icon: 'error',
+                                                 confirmButtonText: 'Try Again'
+                                             });
+                                         }
+                                     })
+                                     .catch(error => {
+                                         Swal.fire({
+                                             title: 'Error!',
+                                             text: 'There was an issue submitting your form.',
+                                             icon: 'error',
+                                             confirmButtonText: 'Try Again'
+                                         });
+                                     });
+                                 });
+                             </script>
+                             
                            </div>
                        </div>
                   

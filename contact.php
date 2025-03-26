@@ -13,10 +13,47 @@ header('Content-Type: application/json');
 $response = ["success" => false, "message" => ""]; // Initialize the response array
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $secretKey = "YOUR_SECRET_KEY"; // Replace with your reCAPTCHA secret key
+    $captchaResponse = $_POST['g-recaptcha-response'] ?? '';
+
+
+    // Honeypot check (if filled, it's a bot)
+    if (!empty($_POST["website"])) {
+        echo json_encode(["success" => false, "message" => "Spam detected!"]);
+        exit;
+    }
+
+    // Verify reCAPTCHA
+    if (empty($captchaResponse)) {
+        echo json_encode(["success" => false, "message" => "Please complete the CAPTCHA"]);
+        exit;
+    }
+
+        $verifyURL = "https://www.google.com/recaptcha/api/siteverify?secret=$secretKey&response=$captchaResponse";
+        $response = file_get_contents($verifyURL);
+        $responseKeys = json_decode($response, true);
+    
+        if (!$responseKeys["success"] || $responseKeys["score"] < 0.5) { // Adjust the threshold as needed
+            echo json_encode(["success" => false, "message" => "CAPTCHA verification failed."]);
+            exit;
+        }
+        
+
+    
+
+
     $name = htmlspecialchars($_POST["name"]);
     $email = htmlspecialchars($_POST["email"]);
     $phone = htmlspecialchars($_POST["phone"]);
     $message = htmlspecialchars($_POST["message"]);
+
+     // Ensure all required fields are filled (prevents empty spam submissions)
+     if (empty($name) || empty($email) || empty($message)) {
+        $response["message"] = "Please fill in all required fields.";
+        echo json_encode($response);
+        exit;
+    }
 
     $mail = new PHPMailer(true);
 
