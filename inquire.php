@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Recipients
         $mail->setFrom('info@adonaisrilankatours.com', 'Adonai Sri Lanka Tours');
-        $mail->addAddress('info@adonaisrilankatours.com');
+        $mail->addAddress('minukadev404@gmail.com');
 
         // Content
         $mail->isHTML(true);
