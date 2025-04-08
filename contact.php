@@ -33,17 +33,25 @@ try {
     $mail->SMTPAuth = true;
     $mail->Username = 'info@adonaisrilankatours.com'; // Replace with your email address
     $mail->Password = '#Nilanka#2024'; // Replace with your email password
-    $mail->SMTPSecure = 'tls'; // Use 'ssl' if your server requires it
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Use 'ssl' if your server requires it
     $mail->Port = 587; // Common port for TLS, check your server's settings
 
 
     // Recipients
     $mail->setFrom('info@adonaisrilankatours.com', 'Adonai Sri Lanka Tours'); // Replace with your email address and name
     $mail->addAddress('adonaitours21@gmail.com'); // Recipient email address
+    $mail->addReplyTo($email, $name); // Add reply-to with the sender's email
+    
+    // Additional headers to prevent spam
+    $mail->XMailer = 'Adonai Sri Lanka Tours Mailer';
+    $mail->CharSet = 'UTF-8';
+    $mail->Priority = 1;
+    $mail->addCustomHeader('X-MSMail-Priority', 'High');
+    $mail->addCustomHeader('Importance', 'High');
 
     // Content
     $mail->isHTML(true);
-    $mail->Subject = 'New Contact Form Submission';
+    $mail->Subject = "Contact Inquiry from $name - Adonai Sri Lanka Tours";
     $mail->Body = '
         <!DOCTYPE html>
         <html>
