@@ -2,26 +2,17 @@
 
 /* Fixed header nav */
 document.addEventListener("DOMContentLoaded", function(){
+  var masthead = document.getElementById('masthead');
+  if (!masthead) return;
   window.addEventListener('scroll', function() {
-      var headerHeight = document.querySelector('.top-header').offsetHeight;
-      if($(window).width() >= 992)
-      {
-        if ( window.scrollY > headerHeight ) {
-          document.getElementById('masthead').classList.add('fixed-header');
-        }else {
-          document.getElementById('masthead').classList.remove('fixed-header');
-        }
-      } else {
-        var bottomheaderHeight = document.querySelector('.bottom-header').offsetHeight;
-        var mobileheaderHeight =  headerHeight + bottomheaderHeight;
-        if ( window.scrollY > mobileheaderHeight ) {
-          document.getElementById('masthead').classList.add('fixed-header');
-        }else {
-          document.getElementById('masthead').classList.remove('fixed-header');
-        }
-      }
+    var headerHeight = masthead.offsetHeight;
+    if (window.scrollY > headerHeight) {
+      masthead.classList.add('fixed-header');
+    } else {
+      masthead.classList.remove('fixed-header');
+    }
   });
-}); 
+});
 
 $( document ).ready(function() {
   /* header postion absolute to banner */
@@ -65,17 +56,7 @@ $( '.header-search-form, .search-close' ).click(function(e) {
   }
 });
 
-/* Mobile slick nav */
-$('#navigation').slicknav({
-  duration: 500,
-  closedSymbol: '<i class="fas fa-plus"></i>',
-  openedSymbol: '<i class="fas fa-minus"></i>',
-  prependTo: '.mobile-menu-container',
-  allowParentLinks: true,
-  nestedParentLinks : false,
-  label: "Menu", 
-  closeOnClick: true, // Close menu when a link is clicked.
-});
+/* Mobile nav is now handled by custom inline script in the navbar */
 
 /* Home Featured slider */
 $('.home-banner-slider').slick({
