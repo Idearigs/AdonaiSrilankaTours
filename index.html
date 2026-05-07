@@ -114,8 +114,20 @@
                .adonai-mobile-menu ul li a:hover { color: #fff; padding-left: 30px; }
                .mob-contact-link { color: #5da4f0 !important; font-weight: 700 !important; }
                /* Sticky */
+               /* Transition on background/color changes */
+               #masthead { transition: background .35s ease, box-shadow .35s ease; }
                #masthead.fixed-header { position: fixed; top: 0; left: 0; right: 0; z-index: 9999; animation: navDown .3s ease; }
                @keyframes navDown { from { transform: translateY(-100%); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+               /* Scrolled state – white navbar */
+               #masthead.scrolled { background: #ffffff !important; box-shadow: 0 2px 16px rgba(0,0,0,.12) !important; }
+               #masthead.scrolled .nav-brand-name { color: #0d2137; }
+               #masthead.scrolled .desktop-links a { color: #1a1a2e; }
+               #masthead.scrolled .desktop-links a:hover { color: #0d2137; background: rgba(13,33,55,.08); }
+               #masthead.scrolled .nav-hamburger span { background: #0d2137; }
+               #masthead.scrolled .adonai-mobile-menu { background: #f5f7fa; border-top: 1px solid rgba(0,0,0,.08); }
+               #masthead.scrolled .adonai-mobile-menu ul li a { color: #1a1a2e; }
+               #masthead.scrolled .adonai-mobile-menu ul li a:hover { color: #0d2137; }
+               #masthead.scrolled .adonai-mobile-menu ul li { border-bottom: 1px solid rgba(0,0,0,.06); }
             </style>
 
             <div class="container">

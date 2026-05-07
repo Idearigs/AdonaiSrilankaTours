@@ -1,15 +1,14 @@
 ;(function( $ ){
 
-/* Fixed header nav */
+/* Fixed + scrolled header */
 document.addEventListener("DOMContentLoaded", function(){
   var masthead = document.getElementById('masthead');
   if (!masthead) return;
   window.addEventListener('scroll', function() {
-    var headerHeight = masthead.offsetHeight;
-    if (window.scrollY > headerHeight) {
-      masthead.classList.add('fixed-header');
+    if (window.scrollY > 50) {
+      masthead.classList.add('fixed-header', 'scrolled');
     } else {
-      masthead.classList.remove('fixed-header');
+      masthead.classList.remove('fixed-header', 'scrolled');
     }
   });
 });
