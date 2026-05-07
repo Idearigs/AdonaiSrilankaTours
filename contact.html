@@ -129,6 +129,9 @@
                               <li>
                                 <a href="Activites.html">Activities</a>
                              </li>
+                              <li>
+                                 <a href="gallery.html">Gallery</a>
+                              </li>
                              <li>
                                 <a href="about.html">About us</a>
                              </li>
@@ -186,7 +189,11 @@
                         <div class="col-lg-6">
                            <div class="contact-from-wrap primary-bg">
                               <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-                              <form id="contactForm" method="POST" class="contact-from" action="contact.php">
+                              <form id="contactForm" method="POST" class="contact-from" action="https://api.web3forms.com/submit">
+                                 <input type="hidden" name="access_key" value="1ce0190e-4714-45b3-8ac2-a6a4090c9dfe">
+                                 <input type="hidden" name="from_name" value="Adonaitours-Contact">
+                                 <input type="hidden" name="subject" value="New contact submission from Adonaitourssrilanka">
+                                 <input type="hidden" name="form-name" value="Contact Form">
                                  
                              
                                  <p>
@@ -223,11 +230,14 @@
                              
                                      const form = new FormData(this);  // Collect form data
                              
-                                     fetch('contact.php', {
+                                     fetch('https://api.web3forms.com/submit', {
                                          method: 'POST',
-                                         body: form
+                                         body: form,
+                                         headers: {
+                                             'Accept': 'application/json'
+                                         }
                                      })
-                                     .then(response => response.json())  // Parse the JSON response
+                                     .then(response => response.json())
                                      .then(data => {
                                          if (data.success) {
                                              Swal.fire({
@@ -328,7 +338,7 @@
                <!-- ***iconbox section html end here*** -->
             </section>
          </main>
-         <<footer id="colophon" class="site-footer footer-primary">
+         <footer id="colophon" class="site-footer footer-primary">
             <div class="top-footer">
                <div class="container">
                   <div class="upper-footer">
@@ -396,8 +406,8 @@
                                     </li>
                                     <li>
                                        <i aria-hidden="true" class="icon icon-map-marker1"></i>
-                                       150 minuwangoda Road bolawalana
-                                       western province, Negambo, 11500
+                                       Minuwangoda Road bolawalana
+                                       Western province, Negambo, 11500
                                        Sri lanka
                                     </li>
                                  </ul>
@@ -477,10 +487,10 @@
          <!-- ***custom search field html*** -->
          <!-- ***custom top bar offcanvas html*** -->
        
-         <!-- ***custom top bar offcanvas html*** -->iv>
+         <!-- ***custom top bar offcanvas html*** -->
 
       <!-- JavaScript -->
-      <script src="assets/vendors/jquery/jquery.js"></>
+      <script src="assets/vendors/jquery/jquery.js"></script>
       <script src="assets/vendors/waypoint/waypoints.js"></script>
       <script src="assets/vendors/bootstrap/js/bootstrap.min.js"></script>
       <script src="assets/vendors/jquery-ui/jquery-ui.min.js"></script>
