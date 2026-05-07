@@ -25,6 +25,6 @@ jobs:
           password: ${{ secrets.VPS_PASSWORD }}  # SSH password
           port: 21098  # Adonay SSH port
           script: |
-            cd /home/adonyype/public_html  # Navigate to the web directory
-            git pull origin main  # Pull the latest changes
-            # systemctl restart apache2  # Restart Apache
+            cd /home/adonyype/public_html
+            git fetch origin main
+            git reset --hard origin/main
