@@ -1,17 +1,6 @@
 ;(function( $ ){
 
-/* Fixed + scrolled header */
-document.addEventListener("DOMContentLoaded", function(){
-  var masthead = document.getElementById('masthead');
-  if (!masthead) return;
-  window.addEventListener('scroll', function() {
-    if (window.scrollY > 50) {
-      masthead.classList.add('fixed-header', 'scrolled');
-    } else {
-      masthead.classList.remove('fixed-header', 'scrolled');
-    }
-  });
-});
+/* Navbar sticky + scroll colour handled inline in each page's <header> */
 
 $( document ).ready(function() {
   /* header postion absolute to banner */
