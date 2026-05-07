@@ -71,16 +71,16 @@
                .mob-contact-link { color: #5da4f0 !important; font-weight: 700 !important; }
                /* Sticky */
                /* Sticky positioning handled by CSS; no fixed-header JS needed */
-               /* Scrolled state – white navbar */
-               #masthead.scrolled { background: #ffffff !important; box-shadow: 0 2px 16px rgba(0,0,0,.12) !important; }
-               #masthead.scrolled .nav-brand-name { color: #0d2137; }
-               #masthead.scrolled .desktop-links a { color: #1a1a2e; }
-               #masthead.scrolled .desktop-links a:hover { color: #0d2137; background: rgba(13,33,55,.08); }
-               #masthead.scrolled .nav-hamburger span { background: #0d2137; }
-               #masthead.scrolled .adonai-mobile-menu { background: #f5f7fa; border-top: 1px solid rgba(0,0,0,.08); }
-               #masthead.scrolled .adonai-mobile-menu ul li a { color: #1a1a2e; }
-               #masthead.scrolled .adonai-mobile-menu ul li a:hover { color: #0d2137; }
-               #masthead.scrolled .adonai-mobile-menu ul li { border-bottom: 1px solid rgba(0,0,0,.06); }
+               /* Scrolled state – white navbar (triggered via body.nav-scrolled) */
+               body.nav-scrolled #masthead { background: #ffffff !important; box-shadow: 0 2px 16px rgba(0,0,0,.15) !important; }
+               body.nav-scrolled #masthead .nav-brand-name { color: #0d2137 !important; }
+               body.nav-scrolled #masthead .desktop-links a { color: #1a1a2e !important; }
+               body.nav-scrolled #masthead .desktop-links a:hover { color: #0d2137 !important; background: rgba(13,33,55,.08) !important; }
+               body.nav-scrolled #masthead .nav-hamburger span { background: #0d2137 !important; }
+               body.nav-scrolled #masthead .adonai-mobile-menu { background: #f5f7fa !important; border-top: 1px solid rgba(0,0,0,.08) !important; }
+               body.nav-scrolled #masthead .adonai-mobile-menu ul li a { color: #1a1a2e !important; }
+               body.nav-scrolled #masthead .adonai-mobile-menu ul li a:hover { color: #0d2137 !important; }
+               body.nav-scrolled #masthead .adonai-mobile-menu ul li { border-bottom: 1px solid rgba(0,0,0,.06) !important; }
             </style>
 
             <div class="container">
@@ -135,17 +135,16 @@
                   });
                })();
 
-               // Scroll color-change (blue → white)
+               // Scroll colour-change — body class approach (most reliable)
                (function(){
-                  var hd = document.getElementById('masthead');
-                  if (!hd) return;
-                  window.addEventListener('scroll', function(){
-                     if (window.scrollY > 80) {
-                        hd.classList.add('scrolled');
-                     } else {
-                        hd.classList.remove('scrolled');
-                     }
-                  }, { passive: true });
+                  function check(){
+                     var y = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+                     document.body.classList.toggle('nav-scrolled', y > 80);
+                  }
+                  window.addEventListener('scroll',   check, {passive:true});
+                  document.addEventListener('scroll', check, {passive:true});
+                  setInterval(check, 150);   // polling fallback
+                  check();                   // run once on parse
                })();
             </script>
          </header>
